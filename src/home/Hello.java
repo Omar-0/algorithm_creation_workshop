@@ -2,6 +2,7 @@ package home;
 
 import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.Stack;
 
 public class Hello {
 
@@ -106,4 +107,41 @@ public class Hello {
             return true;
         }
     }
+
+    public static void sortStackWithStacks(Stack<Integer> input){
+
+        if(input.empty()) return;
+        if(input.size() == 2) {
+
+        }
+
+        Stack<Integer> output = new Stack<Integer>();
+        boolean stop = true;
+        Integer pivot;
+        Integer p;
+
+        pivot = input.pop();
+
+        do{
+            p = input.pop();
+            if (pivot <= p){
+                pivot = p;
+                stop = false;
+                output.push(p);
+            }else{
+                output.push(p);
+            }
+
+            if(input.empty()){
+                if (stop) return;
+            }
+
+
+        }while(stop);
+
+
+
+
+    }
+
 }
