@@ -29,7 +29,21 @@ public class Hello {
         ll.add('r');
         ll.add('o');
 
-        System.out.println(checkPalindromeList(ll));
+        System.out.println("Is palindrome? " + ll.toString() + " " + checkPalindromeList(ll));
+
+        Stack<Integer> sortMe = new Stack<Integer>();
+        sortMe.push(2);
+        sortMe.push(1);
+        sortMe.push(5);
+        sortMe.push(8);
+        sortMe.push(3);
+
+        System.out.println("Sort the stack " +sortMe.toString());
+        sortStackWithStacks(sortMe);
+
+        System.out.println(sortMe.toString());
+
+
     }
 
 
@@ -112,11 +126,11 @@ public class Hello {
 
         if(input.empty()) return;
         if(input.size() == 2) {
-
+            //input.pop() == input.peek();
         }
 
         Stack<Integer> output = new Stack<Integer>();
-        boolean stop = true;
+        boolean continueSort = true;
         Integer pivot;
         Integer p;
 
@@ -126,22 +140,19 @@ public class Hello {
             p = input.pop();
             if (pivot <= p){
                 pivot = p;
-                stop = false;
+                continueSort = false;
                 output.push(p);
             }else{
                 output.push(p);
             }
 
             if(input.empty()){
-                if (stop) return;
+                if (continueSort) return;
+                else {
+                    input = output;
+                    output.clear();
+                } ; //swap stacks//
             }
-
-
-        }while(stop);
-
-
-
-
+        }while(continueSort);
     }
-
 }
