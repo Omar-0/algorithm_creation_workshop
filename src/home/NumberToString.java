@@ -73,6 +73,14 @@ public class NumberToString {
 
         System.out.println(numberConverter(900));
         System.out.println(numberConverter(999));
+
+        System.out.println(numberConverter(1002));
+        System.out.println(numberConverter(5555));
+        System.out.println(numberConverter(5005));
+        System.out.println(numberConverter(9999));
+
+        System.out.println(numberConverter(-9999));
+
     }
 
     public static String numberConverter(int input){
@@ -148,6 +156,14 @@ public class NumberToString {
             int digit = input / 100;
             if(input == 100 ) return output += "one hundred";
             else return output += units.get(digit) + " hundred " + numberConverter( input - digit*100);
+        }
+
+        if(input < 1000000){
+            int digit = input / 1000;
+            if(input == 1000 ) return output += "one thousand";
+            else return output += units.get(digit) + " thousand "
+                    + numberConverter( input - digit*1000) ;
+                    //+ numberConverter( input - digit*100);
         }
         return output;
     }
