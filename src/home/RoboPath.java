@@ -14,6 +14,8 @@ public class RoboPath {
 
     public void step( int x, int y){
 
+
+
         if( x != goalX && y != goalY){
 
             boolean openX = false;
@@ -22,21 +24,15 @@ public class RoboPath {
             if(grid[x+1][ y] != 'T' ){
                 path.push(new Pair<>(x+1, y));
                 step(x+1, y);
+                step(x, y+1);
                 openX = true;
-            } else {
-                    path.push(new Pair<>(x, y+1));
-                    step(x, y+1);
-                    openY = true;
             }
 
             if(grid[x][y+1] != 'T' ){
                 path.push(new Pair<>(x, y+1));
                 step(x, y+1);
-                openY = true;
-            } else {
-                path.push(new Pair<>(x+1, y));
                 step(x+1, y);
-                openX = true;
+                openY = true;
             }
 
             if(!(openX && openY)) return;
