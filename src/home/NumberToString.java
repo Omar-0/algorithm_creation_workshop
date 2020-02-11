@@ -65,9 +65,15 @@ public class NumberToString {
         System.out.println(numberConverter(88));
         System.out.println(numberConverter(90));
         System.out.println(numberConverter(99));
+        System.out.println(numberConverter(100));
+        System.out.println(numberConverter(101));
+        System.out.println(numberConverter(300));
+
+        System.out.println(numberConverter(555));
+
+        System.out.println(numberConverter(900));
+        System.out.println(numberConverter(999));
     }
-
-
 
     public static String numberConverter(int input){
 
@@ -138,13 +144,11 @@ public class NumberToString {
             else return output += units.get(90) + units.get(digit);
         }
 
-        /*
         if(input < 1000){
-            int digit = input % 90;
-            if(digit == 0) return output += units.get(90);
-            else return output += units.get(90) + units.get(digit);
+            int digit = input / 100;
+            if(input == 100 ) return output += "one hundred";
+            else return output += units.get(digit) + " hundred " + numberConverter( input - digit*100);
         }
-        */
         return output;
     }
 }
